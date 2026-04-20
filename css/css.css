@@ -1,0 +1,229 @@
+/* การตั้งค่าพื้นฐานสำหรับทั้งหน้าเว็บ */
+:root {
+    --bg-color: #000C58; /* สีพื้นหลังน้ำเงิน */
+    --text-main: #ffffff; /* สีตัวอักษรหลัก */
+    --text-sub: rgba(255, 255, 255, 0.75); /* สีตัวอักษรรอง (จางลง) */
+    --btn-bg: #89a4ff; /* สีปุ่มดาวน์โหลด */
+    --icon-bg: rgba(255, 255, 255, 0.08); /* สีพื้นหลังไอคอน social */
+    --divider-color: #484848; /* สีเส้นแบ่ง */
+    
+    /* เลือกใช้ Font ที่คล้ายกับต้นฉบับ */
+    --font-heading: 'Anuphan', sans-serif; /* สำหรับพาดหัว */
+    --font-body: 'IBM Plex Sans Thai', sans-serif; /* สำหรับเนื้อหา */
+}
+
+/* ลบ margin/padding พื้นฐาน และตั้งค่า box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden; /* ป้องกันแถบเลื่อนแนวนอน */
+}
+
+/* กำหนดคอนเทนเนอร์หลักให้อยู่กึ่งกลาง */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* ระยะห่างระหว่าง Section */
+}
+
+/* หัวข้อประจำส่วน */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+/* --- จัดการ Section: About Me --- */
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.content-wrapper {
+    flex: 1; /* กินพื้นที่ซ้ายมือ */
+    max-width: 600px;
+}
+
+.description-group {
+    margin-top: 25px;
+}
+
+.main-desc {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 25px;
+}
+
+.sub-desc {
+    font-size: 15px;
+    color: var(--text-sub);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+/* จัดกลุ่มปุ่มต่างๆ */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* สไตล์ปุ่ม Download Resume */
+.btn-resume {
+    background-color: var(--btn-bg);
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-resume:hover {
+    background-color: #a3b8ff;
+}
+
+.btn-resume .dot {
+    opacity: 0.6;
+}
+
+/* สไตล์ไอคอน Social Media */
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--icon-bg);
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* จัดการส่วนรูปภาพ */
+.image-wrapper {
+    flex-shrink: 0;
+    width: 480px; /* กำหนดความกว้างตามภาพต้นฉบับ */
+    height: 400px; /* กำหนดความสูง */
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* บังคับให้รูปเต็มกรอบโดยไม่เสียสัดส่วน */
+    border-radius: 16px; /* ขอบมน */
+}
+
+/* --- เส้นแบ่ง Section --- */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--divider-color);
+    width: 100%;
+}
+
+/* --- จัดการ Section: My Capabilities --- */
+.skills-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.skills-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.skills-desc {
+    font-size: 15px;
+    color: var(--text-sub);
+    margin-bottom: 30px;
+}
+
+/* จัดกลุ่ม Skill Tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap; /* ให้ขึ้นบรรทัดใหม่ได้ */
+    gap: 10px;
+}
+
+/* สไตล์ Skill Tag แต่ละอัน */
+.skill-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-sub);
+    padding: 8px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* เส้นขอบบางๆ */
+    border-radius: 50px; /* ทรงแคปซูล */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- การปรับแต่งให้รองรับหน้าจอขนาดเล็ก (Responsive) --- */
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: 40px;
+    }
+    
+    .about-section,
+    .skills-section {
+        flex-direction: column; /* เปลี่ยนจากแนวนอนเป็นแนวตั้ง */
+        gap: 40px;
+    }
+    
+    .image-wrapper {
+        width: 100%; /* รูปเต็มความกว้าง */
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 40px 15px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .main-desc {
+        font-size: 18px;
+    }
+}
